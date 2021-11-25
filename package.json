@@ -1,0 +1,50 @@
+{
+  "name": "simplefullpagescroller",
+  "version": "1.0.1",
+  "description": "A simple full page scroller that just works.",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evansmuscle/SimpleFullPageScroller.git"
+  },
+  "author": "Yigit Kaan KORKMAZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Evansmuscle/SimpleFullPageScroller/issues"
+  },
+  "homepage": "https://github.com/Evansmuscle/SimpleFullPageScroller#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-test-renderer": "^17.0.1",
+    "jest": "^27.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts-ts": "^3.1.0",
+    "react-test-renderer": "^17.0.2",
+    "rollup": "^2.60.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "ts-jest": "^27.0.7"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
