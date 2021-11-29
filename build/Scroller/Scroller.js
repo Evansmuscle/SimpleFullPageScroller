@@ -1,4 +1,12 @@
-import React from 'react';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var React = require('react');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -34,8 +42,8 @@ var Scroller = function (_a) {
         // height
         );
     };
-    return React.createElement("div", { onScroll: onScroll });
+    return React__default["default"].createElement("div", { onScroll: onScroll });
 };
 
-export { Scroller as default };
-//# sourceMappingURL=index.es.js.map
+exports["default"] = Scroller;
+//# sourceMappingURL=Scroller.js.map
