@@ -34,15 +34,30 @@ function __spreadArrays() {
 
 var Scroller = function (_a) {
     var children = _a.children;
+    var _b = React.useState(window.scrollY), y = _b[0], setY = _b[1];
+    var _c = React.useState(0), currentSection = _c[0], setCurrentSection = _c[1];
     var arrayChildren = Array.isArray(children) ? __spreadArrays(children) : [children];
-    console.log(arrayChildren);
-    // const height = window.innerHeight;
-    var onScroll = function (event) {
-        console.log(event
-        // height
-        );
-    };
-    return React__default["default"].createElement("div", { onScroll: onScroll });
+    var height = window.innerHeight;
+    React.useEffect(function () {
+        window.addEventListener("scroll", scrollHandler);
+    }, []);
+    var scrollHandler = React.useCallback(function (event) {
+        var window = event.currentTarget;
+        if (y > (window === null || window === void 0 ? void 0 : window.scrollY)) {
+            if (currentSection !== 0) {
+                window.scrollBy(0, -height);
+                setCurrentSection(currentSection - 1);
+            }
+        }
+        if (y < (window === null || window === void 0 ? void 0 : window.scrollY)) {
+            if (currentSection !== arrayChildren.length - 1) {
+                window.scrollBy(0, height);
+                setCurrentSection(currentSection + 1);
+            }
+        }
+        setY(window.scrollY);
+    }, [y]);
+    return React__default["default"].createElement(React__default["default"].Fragment, null, children);
 };
 
 exports["default"] = Scroller;

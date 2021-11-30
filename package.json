@@ -1,6 +1,6 @@
 {
   "name": "simplefullpagescroller",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A simple full page scroller that just works.",
   "main": "build/Scroller/Scroller.js",
   "module": "build/index.es.js",

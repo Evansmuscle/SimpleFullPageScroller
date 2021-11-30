@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -26,15 +26,30 @@ function __spreadArrays() {
 
 var Scroller = function (_a) {
     var children = _a.children;
+    var _b = useState(window.scrollY), y = _b[0], setY = _b[1];
+    var _c = useState(0), currentSection = _c[0], setCurrentSection = _c[1];
     var arrayChildren = Array.isArray(children) ? __spreadArrays(children) : [children];
-    console.log(arrayChildren);
-    // const height = window.innerHeight;
-    var onScroll = function (event) {
-        console.log(event
-        // height
-        );
-    };
-    return React.createElement("div", { onScroll: onScroll });
+    var height = window.innerHeight;
+    useEffect(function () {
+        window.addEventListener("scroll", scrollHandler);
+    }, []);
+    var scrollHandler = useCallback(function (event) {
+        var window = event.currentTarget;
+        if (y > (window === null || window === void 0 ? void 0 : window.scrollY)) {
+            if (currentSection !== 0) {
+                window.scrollBy(0, -height);
+                setCurrentSection(currentSection - 1);
+            }
+        }
+        if (y < (window === null || window === void 0 ? void 0 : window.scrollY)) {
+            if (currentSection !== arrayChildren.length - 1) {
+                window.scrollBy(0, height);
+                setCurrentSection(currentSection + 1);
+            }
+        }
+        setY(window.scrollY);
+    }, [y]);
+    return React.createElement(React.Fragment, null, children);
 };
 
 export { Scroller as default };

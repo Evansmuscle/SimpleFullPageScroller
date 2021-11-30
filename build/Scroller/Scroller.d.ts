@@ -1,3 +1,5 @@
 import React from "react";
-declare const Scroller: React.FC;
+interface ScrollerProps {
+}
+declare const Scroller: React.FC<ScrollerProps>;
 export default Scroller;
